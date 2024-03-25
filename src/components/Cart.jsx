@@ -13,28 +13,16 @@ const Cart = () => {
 	} = useCart();
 
 	if (isEmpty) return <p>Your cart is empty</p>;
+	// const filteredProducts = items.map((item) => {
+	// 	return {
+	// 		title: item.title,
+	// 		quantity: item.quantity,
+	// 	};
+	// });
 	return (
 		<>
 			<h1>Cart ({totalUniqueItems})</h1>
 
-			<ul>
-				{items.map((item) => (
-					<li key={item.id}>
-						{item.quantity} x {item.title}
-						<button
-							onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
-						>
-							-
-						</button>
-						<button
-							onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
-						>
-							+
-						</button>
-						<button onClick={() => removeItem(item.id)}>&times;</button>
-					</li>
-				))}
-			</ul>
 			<section className="h-screen bg-gray-100 py-12 sm:py-16 lg:py-20">
 				<div className="mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex items-center justify-center">
@@ -125,6 +113,14 @@ const Cart = () => {
 
 								<div className="mt-6 text-center">
 									<button
+										onClick={() =>
+											items.map((item) => {
+												return {
+													title: item.title,
+													quantity: item.quantity,
+												};
+											})
+										}
 										type="button"
 										className="group inline-flex w-full items-center justify-center rounded-md bg-orange-500 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
 									>
