@@ -31,7 +31,7 @@ const Navbar = () => {
         {navItems.map(item => (
           <li
             key={item.id}
-            className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'
+            className='p-4 hover:bg-[#00df9a] rounded-3xl m-2 cursor-pointer duration-300 hover:text-black'
           >
             {item.text}
           </li>
