@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../assets/icons8-logo-100.png'; 

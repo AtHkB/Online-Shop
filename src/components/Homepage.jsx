@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useCart } from 'react-use-cart';
 
 export default function Homepage() {
+	const { addItem } = useCart();
 	const [productsHomepage, setProductsHomepage] = useState([]);
-	const [categories, setCategories] = useState([]);
 
 	const getHomepageProducts = () => {
 		axios
@@ -54,7 +54,10 @@ export default function Homepage() {
 									</p>
 								</div>
 								<div className="flex justify-between gap-4">
-									<button className="bg-blue-500 hover:bg-blue-700 text-white text-xs font-bold py-1 px-2  rounded-full">
+									<button
+										onClick={() => addItem(product)}
+										className="bg-blue-500 hover:bg-blue-700 text-white text-xs font-bold py-1 px-2  rounded-full"
+									>
 										Add to cart
 									</button>
 								</div>
