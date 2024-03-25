@@ -1,18 +1,24 @@
 import { Routes, Route } from 'react-router-dom';
-// import { CartProvider } from 'react-use-cart';
+import { CartProvider } from 'react-use-cart';
 import './App.css';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
-import AllProducts from './components/AllProducts';
+import LoginArea from './components/LoginArea';
+import Cart from './components/Cart';
 
 function App() {
 	return (
 		<>
-			{/* <CartProvider> */}
-			<Navbar />
-			<Homepage />
-			<AllProducts />
-			{/* </CartProvider> */}
+			<CartProvider>
+				<Navbar />
+				<main>
+					<Routes>
+						<Route path="/" element={<Homepage />} />
+						<Route path="/cart" element={<Cart />} />
+						<Route path="/login" element={<LoginArea />} />
+					</Routes>
+				</main>
+			</CartProvider>
 		</>
 	);
 }
